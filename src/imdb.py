@@ -1,5 +1,5 @@
 import csv
-import itertools
+from helpers import *
 
 # dataset from: https://www.kaggle.com/bartius/imdb-top-250-movies-info/data
 
@@ -19,8 +19,11 @@ for row in csv.DictReader(open('data/movies.csv')):
 # store the years of each movie
 years = []
 
-# get all actresses*actors (intentionally not distinct)
+# store all actresses*actors (intentionally not distinct)
 actresses = []
+
+# store all genres of movies
+genres = []
 
 for k in movies:
     # save year of movie
@@ -30,52 +33,33 @@ for k in movies:
     for a in movies[k]['cast'].split(';'):
         actresses.append(a)
 
-# get top n items of a sorted dictionary
-def get_top_n(sorted_dict, n):
-    return dict(itertools.islice(sorted_dict.items(), 0, n + 1))
+    # save genres of movies
+    for g in movies[k]['genre'].split(';'):
+        genres.append(g.replace('\n', ''))
 
-##
-#### Statistics by actress*actor
-##
 
-# store the occurences in the cast for each actress*actor
-actress_occurences = {}
+# get the first n actresses*actors ordered by their number of occurences, if n is
+# not given the full list of actresses*actors and their occurences is returned
+def get_top_n_actresses(n = None):
+    actress_occurences = {}
 
-for a in actresses:
-    actress_occurences[a] = actresses.count(a)
+    for a in actresses:
+        actress_occurences[a] = actresses.count(a)
 
-# get top actresses and their number of occurences
-actress_occurences_sorted = {}
+    return get_top_n(sort_dict_by_value(actress_occurences), n)
 
-for a in sorted(actress_occurences, key=actress_occurences.get, reverse=True):
-    actress_occurences_sorted[a] = actress_occurences[a]
 
-# get the first n actresses*actors ordered by their number of occurences
-def get_top_n_actresses(n):
-    return get_top_n(actress_occurences_sorted, n)
+# get the n years with the most popular movies
+def get_top_n_years(n = None):
+    year_occurences = {}
 
-# get a list of all unique actresses*actors
-def get_unique_actresses():
-    return sorted(list(set(actresses)))
+    for y in years:
+        year_occurences[y] = years.count(y)
 
-##
-#### Statistics by year
-##
+    return get_top_n(sort_dict_by_value(year_occurences), n)
 
-year_occurences = {}
 
-for y in years:
-    year_occurences[y] = years.count(y)
-
-# get years with most movies
-year_occurences_sorted = {}
-
-for y in sorted(year_occurences, key=year_occurences.get, reverse=True):
-    year_occurences_sorted[y] = year_occurences[y]
-
-def get_top_n_years(n):
-    return get_top_n(year_occurences_sorted, n)
-
+# get a histogram of each decade and its respective number of movies
 def get_decades_histogram():
     histogram = {}
 
@@ -85,20 +69,26 @@ def get_decades_histogram():
         else:
             histogram[y[:3] + '0'] = 1
 
-    sorted_histogram = {}
+    return sort_dict_by_key(histogram)
 
-    for key in sorted(histogram):
-        sorted_histogram[key] = histogram[key]
 
-    return sorted_histogram
+# same as get_decades_histogram() but sorted on the number of movies
+def get_decades_histogram_by_popularity():
+    return sort_dict_by_value(get_decades_histogram())
 
-def get_most_popular_decades():
-    histogram = get_decades_histogram()
-    sorted_histogram = {}
 
-    for a in sorted(histogram, key=histogram.get, reverse=True):
-        sorted_histogram[a] = histogram[a]
+# get the number of movies per genre (a movie can have multiple genres)
+def get_most_popular_genres():
+    genre_occurences = {}
 
-    return sorted_histogram
+    for g in genres:
+        genre_occurences[g] = genres.count(g)
 
-print(get_decades_histogram())
+    # remove count for movies without genre
+    genre_occurences.pop('', None)
+
+    return sort_dict_by_value(genre_occurences)
+
+# same as get_most_popular_genres() but sorted on genre name
+def get_most_popular_genres_by_name():
+    return sort_dict_by_key(get_most_popular_genres())
