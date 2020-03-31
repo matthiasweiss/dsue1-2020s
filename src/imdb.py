@@ -32,7 +32,7 @@ for k in movies:
 
 # get top n items of a sorted dictionary
 def get_top_n(sorted_dict, n):
-    return dict(itertools.islice(sorted_list.items(), 0, n + 1))
+    return dict(itertools.islice(sorted_dict.items(), 0, n + 1))
 
 ##
 #### Statistics by actress*actor
