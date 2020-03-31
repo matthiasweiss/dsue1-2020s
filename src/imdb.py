@@ -67,7 +67,7 @@ year_occurences = {}
 for y in years:
     year_occurences[y] = years.count(y)
 
-# get top actresses and their number of occurences
+# get years with most movies
 year_occurences_sorted = {}
 
 for y in sorted(year_occurences, key=year_occurences.get, reverse=True):
@@ -75,3 +75,30 @@ for y in sorted(year_occurences, key=year_occurences.get, reverse=True):
 
 def get_top_n_years(n):
     return get_top_n(year_occurences_sorted, n)
+
+def get_decades_histogram():
+    histogram = {}
+
+    for y in years:
+        if y[:3] + '0' in histogram:
+            histogram[y[:3] + '0'] += 1
+        else:
+            histogram[y[:3] + '0'] = 1
+
+    sorted_histogram = {}
+
+    for key in sorted(histogram):
+        sorted_histogram[key] = histogram[key]
+
+    return sorted_histogram
+
+def get_most_popular_decades():
+    histogram = get_decades_histogram()
+    sorted_histogram = {}
+
+    for a in sorted(histogram, key=histogram.get, reverse=True):
+        sorted_histogram[a] = histogram[a]
+
+    return sorted_histogram
+
+print(get_decades_histogram())
