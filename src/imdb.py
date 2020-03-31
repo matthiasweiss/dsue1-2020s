@@ -1,6 +1,8 @@
 import csv
 import itertools
 
+# dataset from: https://www.kaggle.com/bartius/imdb-top-250-movies-info/data
+
 # store the movies in a dictionary, the key is the movie's name,
 # value is a dictionary containing information from the dataset
 movies = {}
