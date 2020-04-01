@@ -74,7 +74,7 @@ def lollipop_plot(histogram):
     my_range = range(0, len(df.index))
 
     # draw plot
-    plot.stem(ordered_df['values'])
+    plot.stem(ordered_df['values'], use_line_collection = True)
     plot.xticks(my_range, ordered_df['group'])
 
     plot.show()
