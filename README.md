@@ -17,8 +17,6 @@ If you are in the correct folder (`src/`) and have installed all required depend
  
 ### Generated plots
 
-<style>figcaption{text-align:center; font-style: italic}</style>
-
 <figure>
 <img src="plots/plot1.png">
 <figcaption>Figure 1: Bar plot of the distribution of decades movies were released in IMDB's top 250</figcaption>
