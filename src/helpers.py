@@ -4,11 +4,11 @@ import matplotlib.pyplot as plot
 import pandas as pd
 
 ##
-#### helper functions for dictionaries
+# helper functions for dictionaries
 ##
 
 # get top n items of a sorted dictionary
-def get_top_n(sorted_dict, n = None):
+def get_top_n(sorted_dict, n=None):
     if n is None:
         n = len(sorted_dict)
 
@@ -36,14 +36,14 @@ def sort_dict_by_value(unsorted_dict):
 
 
 ##
-#### helper functions for plots
+# helper functions for plots
 ##
 
 # create bar plot of given histogram
 def bar_plot(histogram):
     # set figure and font size
-    plot.figure(figsize = (15, 8))
-    plot.rc('font', size = 8)
+    plot.figure(figsize=(15, 8))
+    plot.rc('font', size=8)
 
     height = histogram.values()
     bars = histogram.keys()
@@ -62,11 +62,12 @@ def bar_plot(histogram):
 # create lollipop plot of given histogram
 def lollipop_plot(histogram):
     # set figure size
-    plot.figure(figsize = (15, 8))
-    plot.rc('font', size = 8)
+    plot.figure(figsize=(15, 8))
+    plot.rc('font', size=8)
 
     # create a dataframe
-    df = pd.DataFrame({'group': list(histogram.keys()), 'values': list(histogram.values()) })
+    df = pd.DataFrame({'group': list(histogram.keys()),
+                       'values': list(histogram.values())})
 
     # reorder it following the values
     ordered_df = df.sort_values(by='values', ascending=False)
@@ -74,7 +75,7 @@ def lollipop_plot(histogram):
 
     # draw plot
     plot.stem(ordered_df['values'])
-    plot.xticks( my_range, ordered_df['group'])
+    plot.xticks(my_range, ordered_df['group'])
 
     plot.show()
 
@@ -86,5 +87,5 @@ def scatter_plot(histogram):
     y = 10 * np.random.rand(len(histogram))
 
     # use the scatter function
-    plot.scatter(x, y, s = list(histogram.values()), alpha=0.5)
+    plot.scatter(x, y, s=list(histogram.values()), alpha=0.5)
     plot.show()

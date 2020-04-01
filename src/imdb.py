@@ -40,7 +40,7 @@ for k in movies:
 
 # get the first n actresses*actors ordered by their number of occurences, if n is
 # not given the full list of actresses*actors and their occurences is returned
-def get_top_n_actresses(n = None):
+def get_top_n_actresses(n=None):
     actress_occurences = {}
 
     for a in actresses:
@@ -50,7 +50,7 @@ def get_top_n_actresses(n = None):
 
 
 # get the n years with the most popular movies
-def get_top_n_years(n = None):
+def get_top_n_years(n=None):
     year_occurences = {}
 
     for y in years:
