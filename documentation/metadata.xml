@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<metadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:title>Exercise 1 - Data Stewardship (2020S)</dc:title>
+    <dc:creator>Matthias Weiß</dc:creator>
+    <dc:subject>Finding patterns in the internet's highest rated movies</dc:subject>
+    <dc:description>
+        IMDB (https://www.imdb.com/) is a popular platform for people to discover new movies and tv shows, as well as to rate ones
+        they have already seen. They list the highest rated movies on the Top 250 page (https://www.imdb.com/chart/top), which thus
+        is an easy way to explore movies that a lot of people really liked. What we are trying to do in this experiment is to find
+        patterns in these 250 movies, we would not go as far as call it "recipes" for popular movies, but that is sort of what we
+        are trying to find. While we are pretty sure that such recipes do not exist, otherwise Hollywood filmmakers would have
+        probably found them by now, we do think that there is useful information hiding in this particular list. Concrete
+        questions we are trying to answer are: are there actresses*actors that frequently appear in high rated movies?
+        Are certain genres more popular than others? Does a certain timeframe have a higher density of highly rated
+        movies? It is noteworthy that we took the data from a publicly accessible dataset
+        (https://www.kaggle.com/bartius/imdb-top-250-movies-info/data) created by Nigel Cox (https://www.kaggle.com/bartius)
+         on January 5th, 2019. While we could have scraped the data ourself, we instead checked it against the current Top
+         250 list and came to the conclusion that the list stayed almost identical, thus we did not see the need to collect
+         the data once again (also the assignment states that we have to use data from an external source).
+    </dc:description>
+    <dc:date>01.04.2020</dc:date>
+    <dc:identifier>https://zenodo.org/badge/latestdoi/251582525</dc:identifier>
+    <dc:language>English</dc:language>
+    <dc:rights>Free access</dc:rights>
+</metadata>
