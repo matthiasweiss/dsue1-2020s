@@ -89,6 +89,7 @@ def get_most_popular_genres():
 
     return sort_dict_by_value(genre_occurences)
 
+
 # same as get_most_popular_genres() but sorted on genre name
 def get_most_popular_genres_by_name():
     return sort_dict_by_key(get_most_popular_genres())
