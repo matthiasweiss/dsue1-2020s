@@ -14,3 +14,22 @@ If you are in the correct folder (`src/`) and have installed all required depend
  
 	$ python3 plots.py
  
+ 
+### Generated plots
+
+<style>figcaption{text-align:center; font-style: italic}</style>
+
+<figure>
+<img src="plots/plot1.png">
+<figcaption>Figure 1: Bar plot of the distribution of decades movies were released in IMDB's top 250</figcaption>
+</figure>
+
+<figure>
+<img src="plots/plot2.png">
+<figcaption>Figure 2: Lollipop plot of the 10 most popular actresses and actors in IMDB's top 250</figcaption>
+</figure>
+
+<figure>
+<img src="plots/plot3.png">
+<figcaption>Figure 3: Bar plot of the distribution of genres in IMDB's top 250</figcaption>
+</figure>
