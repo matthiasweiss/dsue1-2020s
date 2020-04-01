@@ -1,5 +1,7 @@
 # Exercise 1 - Data Stewardship (2020S)
 
+[![DOI](https://zenodo.org/badge/251582525.svg)](https://zenodo.org/badge/latestdoi/251582525)
+
 The purpose of this repository is to extract useful information about the IMDB's ([https://www.imdb.com](https://www.imdb.com)) Top 250 list. Said list comprises the 250 highest rated movies on the platform and we are using a 2019 snapshot of it, which was created by [Nigel Cox](https://www.kaggle.com/bartius) and can be found [here](https://www.kaggle.com/bartius/imdb-top-250-movies-info/data).
 
 The particular tasks were to create plots that illustrate the distribution of the movies per decade, the most popular actors in the list and also the most popular genres.

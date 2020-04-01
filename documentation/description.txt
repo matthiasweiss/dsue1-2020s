@@ -1,0 +1,7 @@
+The y-axis in all three plots is the total number of occurences per actress*actor/decade/genre
+within the top 250 list of movies, as ranked by the users of IMDB (https://www.imdb.com/).
+The list was scraped from the web and stored in a dataset in January 2019 by Nigel Cox.
+
+The x-axis is different in each plot, illustrating a decade in the first plot, an actress*actor
+in the second and a genre in the third (if one looks at the plots in chronological order, for
+example in the README file).
